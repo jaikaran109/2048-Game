@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+ 
+        
+   <section class="mainContainer">
+     <section class="leftPart">   <!--here this part contains the left part of the game 
+                mainly the info part of the new game button -->
+ 
+                <!-- As you can compare this with the 2048 game available on Poki.com -->
+ 
+        <h1>2048</h1>       <!--Main Heading-->
+ 
+        <div class="values">
+<div class="score-box">     <!--score Box - it shows the current score-->
+<h3>Score</h3>
+<p class="score">0</p>
+</div>
+ 
+            <div class="best-score">  <!-- it shows the Best Score or we can say that the highest score-->
+<h3>BEST</h3>
+<p class="score">0</p>
+</div>
+</div>
+ 
+ 
+        <div class="newBtnContainer">
+            <button class="new-game">New Game</button>
+        </div>   <!--New game Button-->
+ 
+        <div class="instructions">  <!-- Instruction how to play and all -->
+<p class="howToPlayContainer">
+<strong>HOW TO PLAY :</strong>
+                Use your <strong>arrow
+                keys</strong> to move the tiles. When
+                two tiles with the same number
+                touch, they <strong>merge into one!</strong>
+ 
+                <br><br><br>
+ 
+                by <strong><u>Jai Karan Gupta.</u>  <u>Privacy Policy</u>  </strong>  
+</p>
+</div>
+ 
+    </section>
+ 
+    <section class="container">  <!-- The Game Part -->
+ 
+        <!-- 16 cells -->
+<div class="cell"></div>   <!-- slots of 4 and there are 4 cells in each slot-->
+<div class="cell"></div>
+<div class="cell"></div>
+<div class="cell"></div>
+ 
+        <div class="cell">2</div>
+<div class="cell"></div>
+<div class="cell"></div>
+<div class="cell"></div>
+ 
+        <div class="cell"></div>
+<div class="cell"></div>
+<div class="cell">2</div>
+<div class="cell"></div>
+ 
+        <div class="cell">4</div>
+<div class="cell">32</div>
+<div class="cell">128</div>
+<div class="cell">0</div>
+</section>
+ 
+ 
+   </section>
+    <script src="./app.js"></script>
+</body>
+</html>
