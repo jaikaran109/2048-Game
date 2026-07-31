@@ -129,13 +129,13 @@ function isGameOver() {
     return true;
 }
 
-document.addEventListener('keydown', (e) => {
+function handleMove(direction) {
     const oldBoard = JSON.parse(JSON.stringify(board));
 
-    if (e.key === 'ArrowLeft') moveLeft();
-    else if (e.key === 'ArrowRight') moveRight();
-    else if (e.key === 'ArrowUp') moveUp();
-    else if (e.key === 'ArrowDown') moveDown();
+    if (direction === 'left') moveLeft();
+    else if (direction === 'right') moveRight();
+    else if (direction === 'up') moveUp();
+    else if (direction === 'down') moveDown();
     else return;
 
     if (!boardsAreEqual(oldBoard, board)) {
@@ -146,7 +146,59 @@ document.addEventListener('keydown', (e) => {
             setTimeout(() => alert('Game Over! Score: ' + score), 100);
         }
     }
+}
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') handleMove('left');
+    else if (e.key === 'ArrowRight') handleMove('right');
+    else if (e.key === 'ArrowUp') handleMove('up');
+    else if (e.key === 'ArrowDown') handleMove('down');
 });
+
+let touchStartX = 0;
+let touchStartY = 0;
+
+document.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+    touchStartY = e.changedTouches[0].screenY;
+});
+
+document.addEventListener('touchend', (e) => {
+    const touchEndX = e.changedTouches[0].screenX;
+    const touchEndY = e.changedTouches[0].screenY;
+
+    const diffX = touchEndX - touchStartX;
+    const diffY = touchEndY - touchStartY;
+
+    const minSwipeDistance = 30;
+
+    if (Math.max(Math.abs(diffX), Math.abs(diffY)) < minSwipeDistance) return;
+
+    if (Math.abs(diffX) > Math.abs(diffY)) {
+        handleMove(diffX > 0 ? 'right' : 'left');
+    } else {
+        handleMove(diffY > 0 ? 'down' : 'up');
+    }
+});
+
+let wheelLocked = false;
+
+window.addEventListener('wheel', (e) => {
+    if (wheelLocked) return;
+
+    const minSwipeDistance = 15;
+
+    if (Math.max(Math.abs(e.deltaX), Math.abs(e.deltaY)) < minSwipeDistance) return;
+
+    wheelLocked = true;
+    setTimeout(() => { wheelLocked = false; }, 300);
+
+    if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
+        handleMove(e.deltaX > 0 ? 'right' : 'left');
+    } else {
+        handleMove(e.deltaY > 0 ? 'down' : 'up');
+    }
+}, { passive: true });
 
 newGameBtn.addEventListener('click', startNewGame);
 
