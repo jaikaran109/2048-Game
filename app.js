@@ -155,15 +155,21 @@ document.addEventListener('keydown', (e) => {
     else if (e.key === 'ArrowDown') handleMove('down');
 });
 
+const gridContainer = document.querySelector('.container');
+
 let touchStartX = 0;
 let touchStartY = 0;
 
-document.addEventListener('touchstart', (e) => {
+gridContainer.addEventListener('touchstart', (e) => {
     touchStartX = e.changedTouches[0].screenX;
     touchStartY = e.changedTouches[0].screenY;
-});
+}, { passive: false });
 
-document.addEventListener('touchend', (e) => {
+gridContainer.addEventListener('touchmove', (e) => {
+    e.preventDefault();
+}, { passive: false });
+
+gridContainer.addEventListener('touchend', (e) => {
     const touchEndX = e.changedTouches[0].screenX;
     const touchEndY = e.changedTouches[0].screenY;
 
@@ -179,7 +185,7 @@ document.addEventListener('touchend', (e) => {
     } else {
         handleMove(diffY > 0 ? 'down' : 'up');
     }
-});
+}, { passive: false });
 
 let wheelLocked = false;
 

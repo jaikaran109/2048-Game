@@ -71,6 +71,12 @@ button{
     gap: 10px;
 }
 
+
+.container {
+    touch-action: none;
+}
+
+
 .howToPlayContainer{
     text-align: justify;
 }
