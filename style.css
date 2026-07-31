@@ -80,6 +80,23 @@ button{
 .howToPlayContainer{
     text-align: justify;
 }
+
+
+.howToPlayContainer a {
+    color: rgb(88, 67, 67);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.howToPlayContainer a:hover {
+    color: rgb(124, 113, 113);
+}
+
+.howToPlayContainer a:visited {
+    color: rgb(88, 67, 67);
+}
+
+
 .cell{
     height: 70px;
     width: 70px;
