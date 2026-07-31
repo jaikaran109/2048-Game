@@ -1,6 +1,6 @@
 # 2048
 
-Visit :- [2048-Game](2048-game-beta-orpin.vercel.app)
+Visit :- [2048-Game](https://2048-game-beta-orpin.vercel.app)
 
 A browser-based clone of the classic 2048 puzzle game, built using plain **HTML, CSS, and JavaScript** — no frameworks or libraries.
 
