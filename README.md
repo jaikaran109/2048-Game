@@ -2,7 +2,8 @@
 
 A browser-based clone of the classic 2048 puzzle game, built using plain **HTML, CSS, and JavaScript** — no frameworks or libraries.
 
-[![2048 Game Screenshot](./screenshot.png)](https://github.com/jaikaran109/2048-Game)
+<img width="1412" height="722" alt="Screenshot 2026-08-01 015439" src="https://github.com/user-attachments/assets/bde3c67a-c655-4a88-b6e8-1e4f27e0839b" />
+
 
 ## How to Play
 
